@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-mongoose.connect("mongodb+srv://james:hello@cluster0.4dqqd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongoose.connect("", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -22,7 +22,7 @@ app.use(cors());
 
 const Post = require("./models/Post.js");
 
-app.get('/posts', async (req, res) => {
+app.get('/postCreate', async (req, res) => {
     const posts = await Post.find();
     res.status(200).json(posts);
 });
