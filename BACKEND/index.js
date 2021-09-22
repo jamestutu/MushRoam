@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const DBLINK = "mongodb+srv://james:hello@cluster0.4dqqd.mongodb.net/Blog?retryWrites=true&w=majority";
+const DBLINK = "mongodb+srv://james:hello@cluster0.4dqqd.mongodb.net/Blog.Posts?retryWrites=true&w=majority";
 
 mongoose.connect(DBLINK, {
     useNewUrlParser: true,
@@ -23,10 +23,10 @@ app.use(cors());
 
 const Post = require("./models/Post");
 
-// app.get('/postCreate', async (req, res) => {
-//     const posts = await Post.find();
-//     res.status(200).json(posts);
-// });
+app.get('/postCreate', async (req, res) => {
+    const posts = await Post.find();
+    res.status(200).json(posts);
+});
 
 app.post('/posts', async (req, res) => {
     console.log(req.body);
