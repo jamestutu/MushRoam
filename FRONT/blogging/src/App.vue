@@ -2,7 +2,7 @@
   <header></header>
 
   <div id="nav">
-    <router-link :to="{ name: 'Home' }">WELCOME</router-link> /
+    <router-link :to="{ name: 'Home' }">MUSHROAM</router-link> /
     <router-link :to="{ name: 'PostList' }">Feed</router-link> /
     <router-link :to="{ name: 'PostCreate' }">New Post</router-link> /
     <router-link :to="{ name: 'About' }">About</router-link>

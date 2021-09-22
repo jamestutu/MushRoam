@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const DBLINK = "mongodb+srv://james:hello@cluster0.4dqqd.mongodb.net/Blog.Posts?retryWrites=true&w=majority";
+const DBLINK = "mongodb+srv://james:hello@cluster0.4dqqd.mongodb.net/Blog?retryWrites=true&w=majority";
 
-mongoose.connect(DBLINK, {
+mongoose.connect("mongodb+srv://simonfolkerts:watermelon@testdb.flgps.gcp.mongodb.net/Blog?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
+    // useFindAndModify: false,
 },
     () => {
         console.log("connected to database...");
@@ -30,6 +30,7 @@ app.get('/postCreate', async (req, res) => {
 
 app.post('/posts', async (req, res) => {
     console.log(req.body);
+    
     const post = new Post({
         species: req.body.species,
         location: req.body.location,

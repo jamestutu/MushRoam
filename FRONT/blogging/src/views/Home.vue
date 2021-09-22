@@ -25,11 +25,11 @@ section {
   transition: 3s ease all;
 }
 
-section:hover {
+/* section:hover {
   background-color:#a7404f;
   width:70vw;
   height:31vh;
   border-radius: 20em;
-}
+} */
 
 </style>
