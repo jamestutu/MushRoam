@@ -1,9 +1,12 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const morgan = require("morgan");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
-const DBLINK = "mongodb+srv://james:hello@cluster0.4dqqd.mongodb.net/mushroam?retryWrites=true&w=majority";
+const jwt = require("jsonwebtoken");
+const cookie = require("cookie-parser")
+const DBLINK = "mongodb+srv://james:aloha@cluster0.4dqqd.mongodb.net/mushroam?retryWrites=true&w=majority";
 
 mongoose.connect(DBLINK,
     () => {
@@ -16,15 +19,18 @@ mongoose.connect(DBLINK,
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:8080'}));
+app.use(morgan("dev"));
 
 const Post = require("./models/Post");
 
+//get post(s)
 app.get('/posts', async (req, res) => {
     const posts = await Post.find();
     res.status(200).json(posts);
 });
 
+//postcreate
 app.post('/posts', async (req, res) => {
     console.log(req.body);
 
@@ -60,6 +66,37 @@ app.post('/users/register', async (req, res) => {
         });
     }
 });
+
+//login
+app.post('/users/login', async (req, res) => {
+    const existUser = await User.findOne({ email: req.body.email });
+    if (!existUser) {
+        return res.status(401).json({ message: "Your details are incorrect" })
+    } else {
+        bcrypt.compare(req.body.password, existUser.password, (error, result) => {
+            if (error) {
+                return res.status(500)({ message: "Your details are incorrect" })
+            } else {
+                if (result) {
+                    const expirationTime = 1 * 60 * 60;
+                    const token = jwt.sign({ id: existUser._id, email: existUser.email }, "password", { expiresIn: expirationTime });
+
+                    res.cookie("jwt", token, { maxAge: expirationTime * 1000, httpOnly: true });
+                    res.status(200).json({ email: existUser.email })
+                } else {
+                    res.status(401).json({ message: "Your details are incorrect" });
+
+                }
+            }
+        });
+    }
+});
+
+// logout
+app.get("/users/logout", async (req, res) => {
+    res.cookie("jwt", "", {maxAge: 1});
+    res.json({message: "logged out"});
+})
 
 
 

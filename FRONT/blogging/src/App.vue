@@ -3,13 +3,33 @@
 
   <div id="nav">
     <router-link :to="{ name: 'Register' }">Register</router-link> /
+     <router-link :to="{ name: 'Login' }">Login</router-link> /
     <router-link :to="{ name: 'Home' }">MUSHROAM</router-link> /
     <router-link :to="{ name: 'PostList' }">Feed</router-link> /
     <router-link :to="{ name: 'PostCreate' }">New Post</router-link> /
-    <router-link :to="{ name: 'About' }">About</router-link>
+    <router-link :to="{ name: 'About' }">About</router-link> /
+    <a @click="logOut">Log Out</a>
   </div>
   <router-view />
 </template>
+
+<script>
+
+export default {
+  name: "App",
+  methods: {
+   async logOut() {
+        const repsonse = await fetch("http://localhost:3000/users/logout", {
+          credentials: "include",
+        });
+        const data = await response.json();
+        console.log(data)
+      }
+    }
+  };
+
+</script>
+
 
 <style>
 * {
@@ -35,9 +55,9 @@
 }
 
 #nav a {
-  font-size: 0.75em;
+  font-size: 0.575em;
   text-decoration: none;
-  color: rgb(134, 39, 39);
+  color: rgb(163, 57, 57);
 }
 
 #nav a.router-link-exact-active {

@@ -1,7 +1,7 @@
 <template>
 <section> 
-<h2> Register </h2>
-  <form @submit.prevent="registerUser">
+<h2>Login</h2>
+  <form @submit.prevent="logIn">
     <div class="formgroup">
       <label for="email">Email</label>
       <input v-model="user.email" type="email" name="email" id="email" />
@@ -16,7 +16,7 @@
       />
     </div>
     <div class="formgroup">
-      <button type="submit">Register User</button>
+      <button type="submit">Log In</button>
     </div>
   </form>
   <!-- {{user}} -->
@@ -34,11 +34,12 @@ export default {
     };
   },
   methods: {
-    async registerUser() {
-      const response = await fetch("http://localhost:3000/users/register", {
+    async logIn() {
+      const response = await fetch("http://localhost:3000/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(this.user),
+        credentials: "include",
       });
       const userData = await response.json();
       console.log(userData);
