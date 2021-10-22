@@ -1,8 +1,10 @@
 <template>
-  <header></header>
+  <header>
+    mushroam
+  </header>
 
   <div id="nav">
-    <router-link :to="{ name: 'Register' }">Register</router-link> /
+    <router-link :to="{ name: 'Register' }">Sign Up</router-link> /
      <router-link :to="{ name: 'Login' }">Login</router-link> /
     <router-link :to="{ name: 'Home' }">MUSHROAM</router-link> /
     <router-link :to="{ name: 'PostList' }">Feed</router-link> /
@@ -47,17 +49,30 @@ export default {
   text-align: center;
 }
 
+header {
+  z-index:999;
+  background-color: #740214;
+  padding: 1em;
+  width:100%;
+  color: white;
+   border-bottom:thin solid #ffffff;
+}
+
 #nav {
+  z-index:999;
+  width:100%;
   border-bottom:thin solid #ffffff;
-  padding: 1.5em;
+  padding: 1em;
   background-color: #740214;
   color: white;
+  position: absolute;
+  bottom: 0;
 }
 
 #nav a {
-  font-size: 0.575em;
+  font-size: 0.61em;
   text-decoration: none;
-  color: rgb(163, 57, 57);
+  color: rgb(201, 105, 105);
 }
 
 #nav a.router-link-exact-active {

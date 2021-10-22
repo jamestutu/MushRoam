@@ -25,7 +25,7 @@
             type="text"
             name="species"
             id="species"
-            placeholder="Species"
+            placeholder="Species of Mushroom"
           />
         </div>
         <div class="formgroup">
@@ -112,7 +112,6 @@ export default {
 section {
   display: flex;
   width: 100vw;
-  height: 100vh;
 }
 
 .container-create-inputs {
