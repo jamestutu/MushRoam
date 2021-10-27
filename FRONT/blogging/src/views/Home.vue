@@ -1,6 +1,6 @@
 <template>
 <section> 
- <h2>Mushroam</h2>
+ 
  </section>
 </template>
 
@@ -8,7 +8,7 @@
 
 
 export default {
-  name: 'Home',
+  // name: 'Home',
 };
 </script>
 
@@ -19,7 +19,6 @@ section {
   align-items: center;
   margin: auto;
   width: 100vw;
-  height: 100vh;
   background-color:#740214;
   color: white;
   transition: 3s ease all;

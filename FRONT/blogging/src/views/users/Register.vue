@@ -1,16 +1,16 @@
 <template>
   <section>
-    <container>
-    <h2>Sign Up</h2>
+    <div class="container">
+    <h2>Sign Up to Mushroam</h2>
     <form @submit.prevent="registerUser">
       <div class="formgroup">
-        <label for="email"></label>
+        <label for="username"></label>
         <input
-          v-model="user.email"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
+          v-model="user.username"
+          type="username"
+          name="username"
+          id="username"
+          placeholder="Username"
         />
       </div>
       <div class="formgroup">
@@ -28,8 +28,8 @@
         <button type="submit">Sign Up</button>
       </div>
     </form>
-    </container>
-    <!-- {{user}} -->
+    </div>
+    {{user}}
   </section>
 </template>
 
@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       user: {
-        email: null,
+        username: null,
         password: null,
       },
     };
@@ -64,14 +64,19 @@ h2 {
   color: white;
 }
 
-section {
+.container {
   margin-top: 10em;
+}
+
+section {
   background-color: #740214;
+  height:100vh;
+  overflow-y: hidden;
 }
 
 .formgroup {
   display: block;
-  margin: 1em auto;
+  margin: 2em auto;
 }
 
 .formgroup input {
@@ -85,7 +90,7 @@ section {
 }
 
 button {
-  margin-top: 1em;
+  
   cursor: pointer;
   color: #740214;
   border-radius: 2em;

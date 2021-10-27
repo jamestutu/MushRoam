@@ -1,10 +1,21 @@
 <template>
+
+
   <section>
+    <h2>Create New Post</h2>
+
     <div class="container-create-inputs">
-      <form @submit.prevent="postPost">
+      <form @submit.prevent="postPost" enctype="multipart/form-data">
         <div id="formgroup-1" class="formgroup">
           <div class="img-upload">
-           
+            <label for="image">Upload Image</label>
+            <input
+              type="file"
+              @change="imageUpload"
+              name="image-upload"
+              id="image-upload"
+              class="image-upload"
+            >
           </div>
           <label for="description"></label>
           <textarea
@@ -51,6 +62,7 @@ export default {
   name: "PostCreate",
   data() {
     return {
+      imageUpload: null,
       species: null,
       location: null,
       description: null,
@@ -58,18 +70,21 @@ export default {
   },
   methods: {
     async postPost() {
+      const post = {};
+     
       const response = await fetch("http://localhost:3000/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          imageUpload: this.imageUpload,
           species: this.species,
           location: this.location,
           description: this.description,
         }),
+        credentials: 'include',
       });
       const data = await response.json();
-      console.log(data);
-      this.$emit("posted"); 
+      this.$emit("posted");
     },
   },
 };
@@ -86,7 +101,6 @@ export default {
 }
 
 .formgroup input {
-  
   width: 100%;
   height: 3em;
   border: none;
@@ -95,9 +109,14 @@ export default {
   padding: 0.5em;
 }
 
+.img-upload input {
+  height:100%;
+  width: 100%;
+}
+
 .img-upload {
-  width:30%;
-  background-color: rgb(224, 224, 224);
+  width: 30%;
+  background-color: rgb(221, 221, 221);
 }
 
 .formgroup textarea {
@@ -110,12 +129,12 @@ export default {
 }
 
 section {
-  display: flex;
   width: 100vw;
+  padding-top: 2em;
 }
 
 .container-create-inputs {
-  margin-top: 2em;
+  margin-top: 1em;
   background-color: white;
   padding: 1.5em;
   width: 100%;
