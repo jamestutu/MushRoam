@@ -130,7 +130,7 @@ export default {
 
 section {
   width: 100vw;
-  padding-top: 2em;
+  padding-top: 5em;
 }
 
 .container-create-inputs {
