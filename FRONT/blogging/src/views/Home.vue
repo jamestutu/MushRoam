@@ -1,5 +1,7 @@
 <template>
 <section> 
+
+  <h2>Welcome to Mushroam</h2>
  
  </section>
 </template>
@@ -8,7 +10,7 @@
 
 
 export default {
-  // name: 'Home',
+  name: 'Home',
 };
 </script>
 
@@ -19,9 +21,9 @@ section {
   align-items: center;
   margin: auto;
   width: 100vw;
-  background-color:#740214;
+  height: 100vh;
+  background-color:#810013;
   color: white;
-  transition: 3s ease all;
 }
 
 /* section:hover {

@@ -7,11 +7,11 @@ import Register from '../views/users/Register'
 import Login from '../views/users/Login'
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home
-  // },
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
   {
     path: '/about',
     name: 'About',

@@ -3,18 +3,18 @@
     <h2>Newsfeed</h2>
     <div class="newsfeed">
       <ul>
-        <li v-for="post of posts" :key="post._id">
-          <h3>{{ post.description }}</h3>
-          <h3>{{ post.species }}</h3>
-          <h3>{{ post.location }}</h3>
-          <h3>{{ post.author.username }} </h3>
-          <p>{{ new Date(post.createdAt).toLocaleDateString("en-NZ") }}</p>
+        <li class="posts" v-for="post of posts" :key="post._id">
+          <div class="img-box"> </div>
+          <div class="data"> 
+          <p>{{ post.description }} </p>
+          <p> <b>Species:</b> {{ post.species }} </p>
+          <p> <b>Location: </b> {{ post.location }} </p>
+          <p> Author: {{ post.author }} </p>
+          </div>
+          <!-- <h4>{{ post.author.username }} </h4> -->
+          <p class="time"> {{ new Date(post.createdAt).toLocaleDateString("en-NZ") }} </p>
         </li>
-        <li><h3>testing</h3></li>
-        <li><h3>testing</h3></li>
-        <li><h3>testing</h3></li>
-        <li><h3>testing</h3></li>
-        <li><h3>testing</h3></li>
+      
       </ul>
     </div>
   </section>
@@ -22,17 +22,41 @@
 
 <script>
 export default {
+  emits: ["posted"],
   name: "PostList",
-  components: {
-    
-  },
+  components: {},
   data() {
     return {
-      posts: [],
+      posts: [
+        {
+          id: 1,
+          description: "This is delicious! Shiitakes harvested fresh from the yard and straight into the ramen noodles! Cheers",
+          species: "Shiitake",
+          location: "West Auckland",
+          author: "ShroomHunter123",
+          createdAt: "2021-10-22T03:16:57.434+00:00",
+        },
+        {
+          id: 2,
+          description: "Is this edible??",
+          species: "Ayahuasca",
+          location: "North Shore",
+          author: "Joe Rogan",
+          createdAt: "2021-10-28T03:27:08.127+00:00",
+        },
+        {
+          id: 3,
+          description: "Beautiful fungi with great patterns and colours",
+          species: "Fly Agaric",
+          location: "Wellington",
+          author: "Biggie",
+          createdAt: "2020-08-22T03:16:57.434+00:00",
+        },
+      ],
     };
   },
   mounted() {
-    this.getPosts();
+    // this.getPosts();
   },
   methods: {
     async getPosts() {
@@ -49,12 +73,43 @@ section {
   padding-top: 5em;
 }
 
-li {
-  border: thin #ccc solid;
-  margin:0 0 3em 0;
+section h2 {
+  font-weight: 700;
+}
+
+li p {
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
+
+.posts {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 0 0 3em 0;
   border-radius: 0.75em;
-  height:15em;
-  /* max-height: 15em; */
+  min-height: 20em;
+  max-height: 25em; 
+  position: relative;
+  
+}
+
+.data {
+  margin: 1em 1em 2em 1em;
+  text-align: left;
+  font-size: 0.95em;
+}
+
+.time {
+  bottom: 0;
+  right:0;
+  font-size: 0.66em;
+  padding: 1em;
+  position: absolute;
+  color:rgb(78, 78, 78);
+}
+
+.img-box {
+  height: 10em;
+  background-color:rgb(221, 221, 221);
 }
 
 .newsfeed {

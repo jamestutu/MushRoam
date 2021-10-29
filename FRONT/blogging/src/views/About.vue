@@ -21,17 +21,23 @@ section {
   padding: 5em 1.5em;
 }
 
+section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight:700;
+}
+
 .about {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   height: 20em;
-  margin-top: 2em;
-  border-radius: 30em;
-  background-color: #740214;
-  padding: 1em;
+  margin-top: 3em;
+  border-radius: 100%;
+  background-color: #921c2e;
+  padding: 1.5em;
 }
 
 .about p {
-  margin: 5em auto;
-  font-weight: 600;
+  font-size: 1em;
+  margin: 4em auto;
   color: white;
 }
 

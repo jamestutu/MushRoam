@@ -1,16 +1,15 @@
 <template>
   <section>
     <header>
-      <h4>MUSHROAM</h4> 
+      <router-link :to="{ name: 'Home' }"><h4>MUSHROAM</h4></router-link> 
     </header>
 
     <div id="nav">
-      <!-- <router-link :to="{ name: 'Home' }">MUSHROAM</router-link> / -->
       <router-link :to="{ name: 'PostList' }">Feed</router-link> /
       <router-link :to="{ name: 'PostCreate' }">Create Post</router-link> /
       <router-link :to="{ name: 'About' }">About</router-link> /
       <router-link :to="{ name: 'Register' }">Sign Up</router-link> /
-      <router-link v-if="!user" :to="{ name: 'Login' }">Login <span> {{user}} </span></router-link>
+      <router-link v-if="!user" :to="{ name: 'Login' }">Login</router-link>
       <div id="logged" v-else> <a @click="logOut">Log Out</a> </div>
     </div>
     <router-view @loggedin="userLogin" :user="user" />
@@ -69,6 +68,7 @@ export default {
   height: 100vh;
   flex-direction: column;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -76,10 +76,20 @@ header {
   background-color: #740214;
   padding: 1em;
   width: 100%;
-  color: white;
   top:0;
   position: fixed;
   border-bottom: thin solid #ffffff;
+}
+
+header h4 {
+  color: white;
+  font-family: 'Arial';
+  font-weight:bolder;
+  text-decoration: none;
+}
+
+header a {
+   text-decoration: none;
 }
 
 header span {
@@ -95,6 +105,7 @@ header span {
   color: white;
   position: fixed;
   bottom: 0;
+  font-family: 'Arial';
 }
 
 #nav a {
