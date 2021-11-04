@@ -1,7 +1,7 @@
 <template>
   <section>
     <header>
-      <router-link :to="{ name: 'Home' }"><h4>MUSHROAM</h4></router-link> 
+      <router-link :to="{ name: 'Home' }"><h4>MUSHROAM</h4> </router-link> 
     </header>
 
     <div id="nav">
@@ -13,7 +13,7 @@
       <div id="logged" v-else> <a @click="logOut">Log Out</a> </div>
     </div>
     <router-view @loggedin="userLogin" :user="user" />
-    {{ user }}
+    
   </section>
 </template>
 

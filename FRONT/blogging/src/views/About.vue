@@ -2,7 +2,7 @@
 <section>
   <h2>About Mushroam</h2>
   <div class="about"> 
-<p>A mushroom or toadstool is the fleshy, spore-bearing fruiting body of a fungus, typically produced above ground, on soil, or on its food source. Mushrooms can be associated with foods or a psychedelic experience.</p>
+<p>Mushroam is a New Zealand online platform that allows users who are intrigued in species of mushrooms of their interest (food, cultural, psychedelic, traditional or hazardous reasons) to be able to not only post their findings but also view other users findings.</p>
   </div>
   
    </section>
@@ -37,7 +37,7 @@ section h2 {
 
 .about p {
   font-size: 1em;
-  margin: 4em auto;
+  margin: 3em auto;
   color: white;
 }
 

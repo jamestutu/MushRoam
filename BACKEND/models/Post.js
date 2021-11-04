@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 
 const PostSchema = mongoose.Schema(
     {
-        // imageUpload: { type: Object, required: true},
-        imageURL: { type: String, default: "null"},
         description: { type: String, required: true},
         species: { type: String, required: true},
         location: { type: String, default: "null"},

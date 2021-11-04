@@ -2,6 +2,7 @@
 <section> 
 
   <h2>Welcome to Mushroam</h2>
+  <p>{{ user }}</p>
  
  </section>
 </template>
