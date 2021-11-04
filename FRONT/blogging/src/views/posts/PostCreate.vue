@@ -56,7 +56,7 @@
 
 <script>
 export default {
-  emits: ["posted"],
+  // emits: ["posted"],
   name: "PostCreate",
   data() {
     return {

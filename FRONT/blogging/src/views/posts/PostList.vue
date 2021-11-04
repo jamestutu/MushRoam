@@ -32,7 +32,6 @@ export default {
       posts: [
         {
           id: 1,
-
           description:
             "This is delicious! Shiitakes harvested fresh from the yard and straight into the ramen noodles! Cheers",
           species: "Shiitake",
@@ -42,7 +41,6 @@ export default {
         },
         {
           id: 2,
-
           description: "Is this edible??",
           species: "Ayahuasca",
           location: "North Shore",
@@ -51,7 +49,6 @@ export default {
         },
         {
           id: 3,
-
           description: "Beautiful fungi with great patterns and colours",
           species: "Fly Agaric",
           location: "Wellington",
@@ -60,7 +57,6 @@ export default {
         },
         {
           id: 4,
-
           description: "Does anyone know what type of mushroom this is?",
           species: "N/a",
           location: "",
